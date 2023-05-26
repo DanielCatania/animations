@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltip animation</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background-color: #f5f5f5;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .link-home {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+    }
+
+    .button {
+      width: 250px;
+      font-size: 2em;
+
+      border: none;
+      border-radius: 15px;
+
+      color: white;
+      background-color: #ff9100;
+      cursor: pointer;
+
+      position: relative;
+    }
+
+    .button::after {
+      content: "By submitting you agree to the terms of use";
+
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+
+      font-size: 10px;
+      width: 250px;
+      height: 10px;
+      padding: 5px 0;
+
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+    }
+
+    .button::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent rgba(0, 0, 0, 0.3) transparent;
+    }
+
+    .button::before,
+    .button::after {
+      opacity: 0;
+      pointer-events: none;
+      transition: .4s ease-in-out;
+    }
+
+    .button:hover::after,
+    .button:hover::before {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="/animations/" class="link-home">Home</a>
+
+  <button class="button">
+    Submit
+  </button>
+</body>
+
+</html>
