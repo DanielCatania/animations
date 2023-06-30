@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+
+  <title>Writing animation</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background-color: #333;
+      color: white;
+
+      font-family: 'Special Elite', cursive;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .link-home {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+
+      color: inherit;
+    }
+
+    h1 {
+      font-size: 3em;
+      font-weight: bold;
+
+      overflow-x: hidden;
+      white-space: nowrap;
+
+      border-right: 2px solid white;
+
+      animation: writing 5s steps(20) both, blinkCursor .5s 10 1s both;
+
+      height: 50px;
+    }
+
+    @keyframes writing {
+      from {
+        width: 0px;
+      }
+
+      to {
+        width: 300px;
+      }
+    }
+
+    @keyframes blinkCursor {
+      from {
+        border-right-color: white;
+      }
+
+      to {
+        border-right-color: transparent;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="/animations/" class="link-home">Home</a>
+
+  <h1>
+    Writing... :)
+  </h1>
+</body>
+
+</html>
