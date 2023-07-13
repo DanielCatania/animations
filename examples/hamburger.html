@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamburger Menu animation</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .link-home {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+    }
+
+    .button-menu {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .hamburger {
+      position: relative;
+      width: 100px;
+      height: 10px;
+      background-color: black;
+
+      transition: .5s;
+    }
+
+    .hamburger::after,
+    .hamburger::before {
+      content: "";
+      width: 100px;
+      height: 10px;
+      background-color: black;
+      display: block;
+      position: absolute;
+      transition: .5s;
+    }
+
+    .hamburger::after {
+      bottom: -20px;
+    }
+
+    .hamburger::before {
+      top: -20px;
+    }
+
+    .hamburger.menu-open {
+      transform: rotate(45deg);
+    }
+
+    .menu-open.hamburger::after,
+    .menu-open.hamburger::before {
+      transform: rotate(90deg);
+      top: 0;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="/animations/" class="link-home">Home</a>
+
+  <div class="button-menu">
+    <div class="hamburger"></div>
+  </div>
+
+  <script>
+    const buttonMenu = document.querySelector(".button-menu");
+    const hamburger = document.querySelector(".hamburger");
+    let menuOpen = false;
+
+    buttonMenu.addEventListener("click", () => {
+      if (menuOpen) {
+        hamburger.classList.remove("menu-open");
+        menuOpen = false;
+      } else {
+        hamburger.classList.add("menu-open");
+        menuOpen = true;
+      }
+
+      console.log(menuOpen)
+    })
+  </script>
+</body>
+
+</html>
